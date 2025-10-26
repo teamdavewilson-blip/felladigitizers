@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fella Digitizers</title>
+    <link rel="shortcut icon" href="./Assets/img/images-removebg-preview.png" type="image/x-icon">
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#059669', // Emerald
+              'primary-dark': '#047857',
+              secondary: '#DC2626', // Red
+              dark: '#1e293b',
+              light: '#f8fafc',
+              gray: '#64748b',
+            },
+            fontFamily: {
+              'poppins': ['Poppins', 'sans-serif'],
+              'montserrat': ['Montserrat', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      .mobile-nav {
+        transition: transform 0.3s ease-in-out;
+      }
+      .mobile-overlay {
+        transition: opacity 0.3s ease-in-out;
+      }
+      
+      /* Smooth scrolling */
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      /* Custom animations */
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+      }
+      .animate-float {
+        animation: float 3s ease-in-out infinite;
+      }
+      
+      /* Custom gradient for hero section */
+      .hero-gradient {
+        background: linear-gradient(135deg, #ecfdf5 0%, #fef2f2 100%);
+      }
+      
+      /* Custom styles for patches section */
+      @media (min-width: 768px) and (max-width: 1023px) {
+        .patches-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body class="font-poppins text-dark bg-light overflow-x-hidden">
+    <!-- Top Bar with Working Hours -->
+    <div class="bg-primary text-white py-2 text-xs sm:text-sm">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="flex items-center gap-2 mb-2 md:mb-0">
+            <i class="far fa-clock"></i>
+            <span>Mon-Fri: 9AM-6PM | Sat: 10AM-2PM</span>
+          </div>
+          <div class="flex gap-4 sm:gap-5">
+            <a href="tel:+15551234567" class="flex items-center gap-1 hover:text-gray-200 transition-colors text-xs sm:text-sm">
+              <i class="fas fa-phone"></i>
+              <span>+1 (555) 123-4567</span>
+            </a>
+            <a href="https://mail.google.com/" class="flex items-center gap-1 hover:text-gray-200 transition-colors text-xs sm:text-sm">
+              <i class="fas fa-envelope"></i>
+              <span>info@felladigitizers.com</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header -  -->
+    <header class="bg-white shadow-lg sticky top-0 z-50 py-3 transition-all">
+      <div class="container mx-auto px-6">
+        <div class="flex justify-between items-center">
+          <!-- Logo -->
+          <div class="flex items-center gap-3">
+            <i class="fas fa-threads text-primary text-2xl"></i>
+            <div class="font-bold text-xl sm:text-2xl text-gray-900">
+              Fella <span class="text-primary">Digitizers</span>
+            </div>
+          </div>
+
+          <!-- Desktop Navigation -->
+          <nav class="hidden lg:flex items-center space-x-8">
+            <a href="#home" class="relative font-semibold text-gray-700 hover:text-primary transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full">
+              Home
+            </a>
+            <a href="#about" class="relative font-semibold text-gray-700 hover:text-primary transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full">
+              About Us
+            </a>
+            
+            <!-- Services Dropdown -->
+            <div class="relative group">
+              <a href="#services" class="relative font-semibold text-gray-700 hover:text-primary transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full flex items-center gap-1">
+                Services <i class="fas fa-chevron-down text-xs transition-transform group-hover:rotate-180"></i>
+              </a>
+              <div class="absolute top-full left-0 bg-white min-w-[220px] shadow-xl rounded-lg py-3 mt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gray-100">
+                <a href="#digitizing" class="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-emerald-50 hover:text-primary transition-all group">
+                  <i class="fas fa-vector-square text-primary w-5"></i>
+                  <span>Logo Digitizing</span>
+                </a>
+                <a href="#vector" class="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-emerald-50 hover:text-primary transition-all group">
+                  <i class="fas fa-pen-nib text-primary w-5"></i>
+                  <span>Vector Art</span>
+                </a>
+                <a href="#patches" class="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-emerald-50 hover:text-primary transition-all group">
+                  <i class="fas fa-shield-alt text-primary w-5"></i>
+                  <span>Patches</span>
+                </a>
+                <a href="#pricing" class="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-emerald-50 hover:text-primary transition-all group">
+                  <i class="fas fa-tags text-primary w-5"></i>
+                  <span>Pricing</span>
+                </a>
+                <a href="#apparel" class="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-emerald-50 hover:text-primary transition-all group">
+                  <i class="fas fa-tshirt text-primary w-5"></i>
+                  <span>Apparel</span>
+                </a>
+              </div>
+            </div>
+
+            <a href="#contact" class="relative font-semibold text-gray-700 hover:text-primary transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full">
+              Contact
+            </a>
+          </nav>
+
+          <!-- CTA Buttons -->
+          <div class="hidden lg:flex items-center gap-4">
+            <!-- Email Now Button -->
+            <a href="https://mail.google.com/">
+              <button class="bg-primary text-white border-none py-3 px-6 rounded-full font-semibold cursor-pointer transition-all hover:bg-primary-dark hover:-translate-y-1 hover:shadow-lg flex items-center gap-2">
+                Email Now <i class="fas fa-envelope text-sm"></i>
+              </button>
+            </a>
+            
+            <!-- Get Started Button -->
+            <a href="#contact">
+              <button class="bg-secondary text-white border-none py-3 px-6 rounded-full font-semibold cursor-pointer transition-all hover:bg-red-700 hover:-translate-y-1 hover:shadow-lg flex items-center gap-2">
+                Get Started <i class="fas fa-arrow-right text-sm"></i>
+              </button>
+            </a>
+          </div>
+
+          <!-- Mobile Toggle -->
+          <div class="lg:hidden text-2xl cursor-pointer text-gray-700 mobile-toggle p-2">
+            <i class="fas fa-bars"></i>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <nav class="lg:hidden fixed top-0 left-0 w-full h-full bg-white shadow-2xl transform -translate-x-full transition-transform duration-300 z-50 mobile-nav">
+      <div class="p-6 h-full overflow-y-auto">
+        <!-- Close Button -->
+        <div class="flex justify-between items-center mb-8 sticky top-0 bg-white pb-4 border-b border-gray-200">
+          <div class="flex items-center gap-3">
+            <i class="fas fa-threads text-primary text-2xl"></i>
+            <div class="font-bold text-xl text-gray-900">
+              Fella <span class="text-primary">Digitizers</span>
+            </div>
+          </div>
+          <button class="mobile-close text-2xl text-gray-700 p-2">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+
+        <div class="space-y-2">
+          <a href="#home" class="flex items-center gap-3 px-4 py-4 font-semibold text-gray-700 hover:text-primary hover:bg-emerald-50 rounded-xl transition-all mobile-nav-link">
+            <i class="fas fa-home text-primary w-5"></i>
+            <span>Home</span>
+          </a>
+          <a href="#about" class="flex items-center gap-3 px-4 py-4 font-semibold text-gray-700 hover:text-primary hover:bg-emerald-50 rounded-xl transition-all mobile-nav-link">
+            <i class="fas fa-info-circle text-primary w-5"></i>
+            <span>About Us</span>
+          </a>
+          
+          <!-- Mobile Services Dropdown -->
+          <div class="mobile-dropdown">
+            <a href="#services" class="flex items-center justify-between px-4 py-4 font-semibold text-gray-700 hover:text-primary hover:bg-emerald-50 rounded-xl transition-all mobile-nav-link">
+              <div class="flex items-center gap-3">
+                <i class="fas fa-cogs text-primary w-5"></i>
+                <span>Services</span>
+              </div>
+              <i class="fas fa-chevron-down transition-transform text-sm"></i>
+            </a>
+            <div class="mt-2 ml-4 space-y-2 hidden mobile-dropdown-menu">
+              <a href="#digitizing" class="flex items-center gap-3 px-4 py-3 text-gray-600 hover:text-primary hover:bg-emerald-50 rounded-lg transition-all mobile-nav-link">
+                <i class="fas fa-vector-square text-primary w-5"></i>
+                <span>Logo Digitizing</span>
+              </a>
+              <a href="#vector" class="flex items-center gap-3 px-4 py-3 text-gray-600 hover:text-primary hover:bg-emerald-50 rounded-lg transition-all mobile-nav-link">
+                <i class="fas fa-pen-nib text-primary w-5"></i>
+                <span>Vector Art</span>
+              </a>
+              <a href="#patches" class="flex items-center gap-3 px-4 py-3 text-gray-600 hover:text-primary hover:bg-emerald-50 rounded-lg transition-all mobile-nav-link">
+                <i class="fas fa-shield-alt text-primary w-5"></i>
+                <span>Patches</span>
+              </a>
+              <a href="#pricing" class="flex items-center gap-3 px-4 py-3 text-gray-600 hover:text-primary hover:bg-emerald-50 rounded-lg transition-all mobile-nav-link">
+                <i class="fas fa-tags text-primary w-5"></i>
+                <span>Pricing</span>
+              </a>
+              <a href="#apparel" class="flex items-center gap-3 px-4 py-3 text-gray-600 hover:text-primary hover:bg-emerald-50 rounded-lg transition-all mobile-nav-link">
+                <i class="fas fa-tshirt text-primary w-5"></i>
+                <span>Apparel</span>
+              </a>
+            </div>
+          </div>
+
+          <a href="#contact" class="flex items-center gap-3 px-4 py-4 font-semibold text-gray-700 hover:text-primary hover:bg-emerald-50 rounded-xl transition-all mobile-nav-link">
+            <i class="fas fa-envelope text-primary w-5"></i>
+            <span>Contact</span>
+          </a>
+          
+          <!-- Mobile CTA -->
+          <div class="pt-4 border-t border-gray-200 mt-4 space-y-4 sticky bottom-0 bg-white pb-4">
+            <!-- Mobile Email Now Button -->
+            <a href="mailto:info@felladigitizers.com" class="block w-full">
+              <button class="w-full bg-primary text-white border-none py-4 px-6 rounded-xl font-semibold cursor-pointer transition-all hover:bg-primary-dark flex items-center justify-center gap-2">
+                Email Now <i class="fas fa-envelope text-sm"></i>
+              </button>
+            </a>
+            
+            <!-- Mobile Get Started Button -->
+            <a href="#contact" class="block w-full">
+              <button class="w-full bg-secondary text-white border-none py-4 px-6 rounded-xl font-semibold cursor-pointer transition-all hover:bg-red-700 flex items-center justify-center gap-2">
+                Get Started <i class="fas fa-arrow-right text-sm"></i>
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Overlay -->
+    <div class="fixed inset-0 bg-black bg-opacity-50 hidden z-40 mobile-overlay"></div>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-16 md:pt-40 md:pb-20 hero-gradient relative overflow-hidden" id="home">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
+          <!-- Text Content -->
+          <div class="w-full lg:w-1/2 text-center lg:text-left">
+            <h1 class="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 md:mb-6 leading-tight">
+              Professional 
+              <span class="text-primary relative inline-block">
+                Embroidery Digitizing
+                <span class="absolute bottom-1 left-0 w-full h-2 bg-primary/20 -z-10"></span>
+              </span> 
+              Services
+            </h1>
+            <p class="text-base sm:text-lg text-gray-600 mb-6 md:mb-8 max-w-full lg:max-w-[90%]">
+              Transform your designs into high-quality embroidery files with precision and attention to detail. Fast turnaround and competitive pricing.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <a href="#contact" class="inline-block">
+                <button class="bg-primary text-white border-none py-3 px-6 rounded-full font-semibold cursor-pointer transition-all hover:bg-primary-dark hover:-translate-y-1 hover:shadow-lg flex items-center gap-2">
+                  Start Your Project <i class="fas fa-arrow-right"></i>
+                </button>
+              </a>
+              <a href="#pricing" class="inline-block">
+                <button class="bg-secondary text-white border-none py-3 px-6 rounded-full font-semibold cursor-pointer transition-all hover:bg-red-700 hover:-translate-y-1 hover:shadow-lg flex items-center gap-2">
+                  View Pricing <i class="fas fa-tags"></i>
+                </button>
+              </a>
+            </div>
+          </div>
+          
+          <!-- Image Content -->
+          <div class="w-full lg:w-1/2 flex justify-center items-center mt-8 lg:mt-0">
+            <div class="relative w-full max-w-sm sm:max-w-md h-64 sm:h-72 md:h-80">
+              <!-- Main Embroidery Machine Graphic -->
+              <div class="absolute inset-0 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl shadow-2xl flex justify-center items-center animate-float">
+                <div class="w-4/5 h-3/5 bg-white rounded-lg relative overflow-hidden shadow-inner border-4 border-emerald-300">
+                  <div class="absolute inset-0 flex flex-col justify-center items-center text-emerald-900 p-4 sm:p-5">
+                    <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mb-3">
+                      <i class="fas fa-cogs text-white text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg sm:text-xl md:text-2xl mb-2">Our Services</h3>
+                    <p class="text-center text-sm sm:text-base">Professional Digitizing Solutions</p>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Floating Elements -->
+              <div class="absolute -top-4 -right-4 w-16 h-16 bg-secondary rounded-full flex items-center justify-center shadow-lg animate-float" style="animation-delay: 0.5s">
+                <i class="fas fa-bolt text-white"></i>
+              </div>
+              <div class="absolute -bottom-4 -left-4 w-12 h-12 bg-amber-500 rounded-full flex items-center justify-center shadow-lg animate-float" style="animation-delay: 1s">
+                <i class="fas fa-check text-white"></i>
+              </div>
+              <div class="absolute top-1/2 -right-6 w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center shadow-lg animate-float" style="animation-delay: 1.5s">
+                <i class="fas fa-star text-white text-sm"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enhanced Services Section -->
+    <section class="py-16 md:py-20 bg-white" id="services">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12 md:mb-16">
+          <h2 class="font-bold text-3xl md:text-4xl lg:text-5xl mb-4 md:mb-6 text-gray-900">
+            Our <span class="text-primary">Services</span>
+          </h2>
+          <p class="text-gray-600 text-base md:text-lg max-w-3xl mx-auto">
+            Professional digitizing solutions for apparel brands, businesses, and individuals
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          <!-- Logo Digitizing -->
+          <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group text-center">
+            <div class="w-14 h-14 sm:w-16 sm:h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 text-white text-xl sm:text-2xl">
+              <i class="fas fa-vector-square"></i>
+            </div>
+            <h3 class="font-bold text-lg sm:text-xl mb-3 text-gray-900">Logo Digitizing</h3>
+            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">
+              Convert your logos into high-quality embroidery files with perfect stitch placement for all apparel types
+            </p>
+            <div class="mt-4 pt-4 border-t border-gray-100">
+              <span class="text-primary font-semibold text-sm sm:text-base">Starting at $10</span>
+            </div>
+          </div>
+
+          <!-- Apparel Digitizing -->
+          <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group text-center">
+            <div class="w-14 h-14 sm:w-16 sm:h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 text-white text-xl sm:text-2xl">
+              <i class="fas fa-tshirt"></i>
+            </div>
+            <h3 class="font-bold text-lg sm:text-xl mb-3 text-gray-900">Apparel Digitizing</h3>
+            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">
+              Specialized digitizing for t-shirts, caps, jackets, and other garments with fabric-specific optimization
+            </p>
+            <div class="mt-4 pt-4 border-t border-gray-100">
+              <span class="text-primary font-semibold text-sm sm:text-base">Starting at $12</span>
+            </div>
+          </div>
+
+          <!-- Patches -->
+          <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group text-center">
+            <div class="w-14 h-14 sm:w-16 sm:h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 text-white text-xl sm:text-2xl">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3 class="font-bold text-lg sm:text-xl mb-3 text-gray-900">Custom Patches</h3>
+            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">
+              Create embroidered patches for uniforms, organizations, and promotional items with various border options
+            </p>
+            <div class="mt-4 pt-4 border-t border-gray-100">
+              <span class="text-primary font-semibold text-sm sm:text-base">Starting at $15</span>
+            </div>
+          </div>
+
+          <!-- Vector Art -->
+          <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group text-center">
+            <div class="w-14 h-14 sm:w-16 sm:h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 text-white text-xl sm:text-2xl">
+              <i class="fas fa-pen-nib"></i>
+            </div>
+            <h3 class="font-bold text-lg sm:text-xl mb-3 text-gray-900">Vector Art</h3>
+            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">
+              Convert images to clean vector formats for embroidery, printing, and branding applications
+            </p>
+            <div class="mt-4 pt-4 border-t border-gray-100">
+              <span class="text-primary font-semibold text-sm sm:text-base">Starting at $20</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section  -->
+    <section class="py-16 md:py-20 bg-gray-50" id="pricing">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12 md:mb-16">
+          <h2 class="font-bold text-3xl md:text-4xl mb-4 relative inline-block after:content-[''] after:absolute after:-bottom-3 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-primary after:rounded">
+            Pricing Plans
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">Affordable pricing for all your digitizing needs</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <!-- Basic Plan -->
+          <div class="bg-white rounded-2xl p-6 md:p-8 shadow-lg transition-all duration-300 hover:-translate-y-2 text-center">
+            <div class="mb-6 md:mb-8">
+              <h3 class="font-bold text-xl md:text-2xl mb-4">Basic</h3>
+              <div class="text-3xl md:text-4xl font-bold text-primary mb-2">$15</div>
+              <div class="text-gray-600 text-sm md:text-base">per design</div>
+            </div>
+            <ul class="space-y-3 md:space-y-4 mb-6 md:mb-8">
+              <li class="py-2 md:py-3 border-b border-gray-200 text-sm md:text-base">Simple logo digitizing</li>
+              <li class="py-2 md:py-3 border-b border-gray-200 text-sm md:text-base">Up to 5,000 stitches</li>
+              <li class="py-2 md:py-3 border-b border-gray-200 text-sm md:text-base">2 revisions included</li>
+              <li class="py-2 md:py-3 border-b border-gray-200 text-sm md:text-base">24-48 hour turnaround</li>
+              <li class="py-2 md:py-3 text-sm md:text-base">Standard file formats</li>
+            </ul>
+            <a href="#contact" class="block w-full">
+              <button class="w-full bg-primary text-white border-none py-3 px-6 rounded-full font-semibold cursor-pointer transition-all hover:bg-primary-dark text-sm md:text-base">
+                Get Started
+              </button>
+            </a>
+          </div>
+
+          <!-- Professional Plan -->
+          <div class="bg-white rounded-2xl p-6 md:p-8 shadow-lg transition-all duration-300 hover:-translate-y-2 text-center relative border-2 border-primary lg:transform lg:scale-105">
+            <div class="absolute top-4 md:top-6 -right-6 md:-right-8 bg-primary text-white py-1 px-4 md:px-8 rotate-45 text-xs md:text-sm font-semibold">Most Popular</div>
+            <div class="mb-6 md:mb-8">
+              <h3 class="font-bold text-xl md:text-2xl mb-4">Professional</h3>
+              <div class="text-3xl md:text-4xl font-bold text-primary mb-2">$25</div>
+              <div class="text-gray-600 text-sm md:text-base">per design</div>
+            </div>
+            <ul class="space-y-3 md:space-y-4 mb-6 md:mb-8">
+              <li class="py-2 md:py-3 border-b border-gray-200 text-sm md:text-base">Complex design digitizing</li>
+              <li class="py-2 md:py-3 border-b border-gray-200 text-sm md:text-base">Up to 15,000 stitches</li>
+              <li class="py-2 md:py-3 border-b border-gray-200 text-sm md:text-base">5 revisions included</li>
+              <li class="py-2 md:py-3 border-b border-gray-200 text-sm md:text-base">12-24 hour turnaround</li>
+              <li class="py-2 md:py-3 text-sm md:text-base">All file formats + consultation</li>
+            </ul>
+            <a href="#contact" class="block w-full">
+              <button class="w-full bg-primary text-white border-none py-3 px-6 rounded-full font-semibold cursor-pointer transition-all hover:bg-primary-dark text-sm md:text-base">
+                Get Started
+              </button>
+            </a>
+          </div>
+
+          <!-- Enterprise Plan -->
+          <div class="bg-white rounded-2xl p-6 md:p-8 shadow-lg transition-all duration-300 hover:-translate-y-2 text-center">
+            <div class="mb-6 md:mb-8">
+              <h3 class="font-bold text-xl md:text-2xl mb-4">Enterprise</h3>
+              <div class="text-3xl md:text-4xl font-bold text-primary mb-2">$45</div>
+              <div class="text-gray-600 text-sm md:text-base">per design</div>
+            </div>
+            <ul class="space-y-3 md:space-y-4 mb-6 md:mb-8">
+              <li class="py-2 md:py-3 border-b border-gray-200 text-sm md:text-base">Complex multi-color designs</li>
+              <li class="py-2 md:py-3 border-b border-gray-200 text-sm md:text-base">Unlimited stitches</li>
+              <li class="py-2 md:py-3 border-b border-gray-200 text-sm md:text-base">Unlimited revisions</li>
+              <li class="py-2 md:py-3 border-b border-gray-200 text-sm md:text-base">6-12 hour turnaround</li>
+              <li class="py-2 md:py-3 text-sm md:text-base">Priority support + source files</li>
+            </ul>
+            <a href="#contact" class="block w-full">
+              <button class="w-full bg-primary text-white border-none py-3 px-6 rounded-full font-semibold cursor-pointer transition-all hover:bg-primary-dark text-sm md:text-base">
+                Get Started
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Patches Section  -->
+    <section class="py-16 md:py-20 bg-white" id="patches">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12 md:mb-16">
+          <h2 class="font-bold text-3xl md:text-4xl mb-4 relative inline-block after:content-[''] after:absolute after:-bottom-3 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-primary after:rounded">
+            Patch Services
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">Create custom embroidered patches for any application</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 patches-grid">
+          <!-- Patch Service 1 -->
+          <div class="bg-white rounded-2xl p-6 md:p-8 shadow-lg transition-all duration-300 hover:-translate-y-3 text-center relative overflow-hidden group">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary to-primary-dark transition-all duration-300 h-0 group-hover:h-full -z-10"></div>
+            <div class="w-16 h-16 md:w-20 md:h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-5 text-primary text-xl md:text-2xl transition-colors duration-300 group-hover:text-white group-hover:bg-white/20">
+              <i class="fas fa-certificate"></i>
+            </div>
+            <div class="w-full h-40 sm:h-44 rounded-xl overflow-hidden mb-5">
+              <img
+                src="./Assets/img/custom-patch-company-hero-image.jpg"
+                alt="Embroidered Patches"
+                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+              />
+            </div>
+            <h3 class="font-bold text-lg md:text-xl mb-4">Embroidered Patches</h3>
+            <p class="text-gray-600 transition-colors duration-300 group-hover:text-white/90 text-sm md:text-base">
+              Custom patches with merrowed borders for professional appearance.
+            </p>
+          </div>
+
+          <!-- Patch Service 2 -->
+          <div class="bg-white rounded-2xl p-6 md:p-8 shadow-lg transition-all duration-300 hover:-translate-y-3 text-center relative overflow-hidden group">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary to-primary-dark transition-all duration-300 h-0 group-hover:h-full -z-10"></div>
+            <div class="w-16 h-16 md:w-20 md:h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-5 text-primary text-xl md:text-2xl transition-colors duration-300 group-hover:text-white group-hover:bg-white/20">
+              <i class="fas fa-heart"></i>
+            </div>
+            <div class="w-full h-40 sm:h-44 rounded-xl overflow-hidden mb-5">
+              <img
+                src="./Assets/img/custom-patch-page-image-20161221.jpg"
+                alt="Shape Patches"
+                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+              />
+            </div>
+            <h3 class="font-bold text-lg md:text-xl mb-4">Shape Patches</h3>
+            <p class="text-gray-600 transition-colors duration-300 group-hover:text-white/90 text-sm md:text-base">
+              Patches in custom shapes beyond standard circles and rectangles.
+            </p>
+          </div>
+
+          <!-- Patch Service 3 -->
+          <div class="bg-white rounded-2xl p-6 md:p-8 shadow-lg transition-all duration-300 hover:-translate-y-3 text-center relative overflow-hidden group">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary to-primary-dark transition-all duration-300 h-0 group-hover:h-full -z-10"></div>
+            <div class="w-16 h-16 md:w-20 md:h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-5 text-primary text-xl md:text-2xl transition-colors duration-300 group-hover:text-white group-hover:bg-white/20">
+              <i class="fas fa-vest"></i>
+            </div>
+            <div class="w-full h-40 sm:h-44 rounded-xl overflow-hidden mb-5">
+              <img
+                src="./Assets/img/military1.jpg"
+                alt="Military Patches"
+                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+              />
+            </div>
+            <h3 class="font-bold text-lg md:text-xl mb-4">Military Patches</h3>
+            <p class="text-gray-600 transition-colors duration-300 group-hover:text-white/90 text-sm md:text-base">
+              Regulation-compliant patches for military and law enforcement.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <!-- Digitizing Section -->
+    <section class="py-16 md:py-20 bg-white" id="digitizing">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12 md:mb-16">
+          <h2 class="font-bold text-3xl md:text-4xl mb-4 relative inline-block after:content-[''] after:absolute after:-bottom-3 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-primary after:rounded">
+            Digitizing Services
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">Precision digitizing for all your embroidery needs</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <!-- Digitizing Service 1 -->
+          <div class="bg-white rounded-2xl p-6 md:p-8 shadow-lg transition-all duration-300 hover:-translate-y-3 text-center relative overflow-hidden group">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary to-primary-dark transition-all duration-300 h-0 group-hover:h-full -z-10"></div>
+            <div class="w-16 h-16 md:w-20 md:h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-5 text-primary text-xl md:text-2xl transition-colors duration-300 group-hover:text-white group-hover:bg-white/20">
+              <i class="fas fa-cogs"></i>
+            </div>
+            <div class="w-full h-40 sm:h-44 rounded-xl overflow-hidden mb-5">
+              <img
+                src="./Assets/img/Jiraffe-600x.png"
+                alt="Auto-Digitizing"
+                class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
+              />
+            </div>
+            <h3 class="font-bold text-lg md:text-xl mb-4">Auto-Digitizing</h3>
+            <p class="text-gray-600 transition-colors duration-300 group-hover:text-white/90 text-sm md:text-base">
+              Fast conversion of simple designs with automated tools for quick turnaround.
+            </p>
+          </div>
+
+          <!-- Digitizing Service 2 -->
+          <div class="bg-white rounded-2xl p-6 md:p-8 shadow-lg transition-all duration-300 hover:-translate-y-3 text-center relative overflow-hidden group">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary to-primary-dark transition-all duration-300 h-0 group-hover:h-full -z-10"></div>
+            <div class="w-16 h-16 md:w-20 md:h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-5 text-primary text-xl md:text-2xl transition-colors duration-300 group-hover:text-white group-hover:bg-white/20">
+              <i class="fas fa-magic"></i>
+            </div>
+            <div class="w-full h-40 sm:h-44 rounded-xl overflow-hidden mb-5">
+              <img
+                src="./Assets/img/image3.png"
+                alt="Manual Digitizing"
+                class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
+              />
+            </div>
+            <h3 class="font-bold text-lg md:text-xl mb-4">Manual Digitizing</h3>
+            <p class="text-gray-600 transition-colors duration-300 group-hover:text-white/90 text-sm md:text-base">
+              Expert manual digitizing for complex designs requiring precise stitch control.
+            </p>
+          </div>
+
+          <!-- Digitizing Service 3 -->
+          <div class="bg-white rounded-2xl p-6 md:p-8 shadow-lg transition-all duration-300 hover:-translate-y-3 text-center relative overflow-hidden group">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary to-primary-dark transition-all duration-300 h-0 group-hover:h-full -z-10"></div>
+            <div class="w-16 h-16 md:w-20 md:h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-5 text-primary text-xl md:text-2xl transition-colors duration-300 group-hover:text-white group-hover:bg-white/20">
+              <i class="fas fa-edit"></i>
+            </div>
+            <div class="w-full h-40 sm:h-44 rounded-xl overflow-hidden mb-5">
+              <img
+                src="./Assets/img/images.png"
+                alt="Redigitizing"
+                class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
+              />
+            </div>
+            <h3 class="font-bold text-lg md:text-xl mb-4">Redigitizing</h3>
+            <p class="text-gray-600 transition-colors duration-300 group-hover:text-white/90 text-sm md:text-base">
+              Improve existing embroidery files with better stitch patterns and optimization.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vector Section -->
+    <section class="py-16 md:py-20 bg-gray-50" id="vector">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12 md:mb-16">
+          <h2 class="font-bold text-3xl md:text-4xl mb-4 relative inline-block after:content-[''] after:absolute after:-bottom-3 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-primary after:rounded">
+            Vector Services
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">Convert images to clean vector formats for various applications</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <!-- Vector Service 1 -->
+          <div class="bg-white rounded-2xl p-6 md:p-8 shadow-lg transition-all duration-300 hover:-translate-y-3 text-center relative overflow-hidden group">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary to-primary-dark transition-all duration-300 h-0 group-hover:h-full -z-10"></div>
+            <div class="w-16 h-16 md:w-20 md:h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-5 text-primary text-xl md:text-2xl transition-colors duration-300 group-hover:text-white group-hover:bg-white/20">
+              <i class="fas fa-draw-polygon"></i>
+            </div>
+            <div class="w-full h-40 sm:h-44 rounded-xl overflow-hidden mb-5">
+              <img
+                src="./Assets/img/free-simple-wings-vintage-logo-vector.jpg"
+                alt="Image Tracing"
+                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+              />
+            </div>
+            <h3 class="font-bold text-lg md:text-xl mb-4">Image Tracing</h3>
+            <p class="text-gray-600 transition-colors duration-300 group-hover:text-white/90 text-sm md:text-base">
+              Convert raster images to scalable vector formats with clean lines and curves.
+            </p>
+          </div>
+
+          <!-- Vector Service 2 -->
+          <div class="bg-white rounded-2xl p-6 md:p-8 shadow-lg transition-all duration-300 hover:-translate-y-3 text-center relative overflow-hidden group">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary to-primary-dark transition-all duration-300 h-0 group-hover:h-full -z-10"></div>
+            <div class="w-16 h-16 md:w-20 md:h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-5 text-primary text-xl md:text-2xl transition-colors duration-300 group-hover:text-white group-hover:bg-white/20">
+              <i class="fas fa-pen-fancy"></i>
+            </div>
+            <div class="w-full h-40 sm:h-44 rounded-xl overflow-hidden mb-5">
+              <img
+                src="./Assets/img/vector 2.jpg"
+                alt="Vector Redraw"
+                class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
+              />
+            </div>
+            <h3 class="font-bold text-lg md:text-xl mb-4">Vector Redraw</h3>
+            <p class="text-gray-600 transition-colors duration-300 group-hover:text-white/90 text-sm md:text-base">
+              Manual recreation of logos and artwork as crisp, editable vector files.
+            </p>
+          </div>
+
+          <!-- Vector Service 3 -->
+          <div class="bg-white rounded-2xl p-6 md:p-8 shadow-lg transition-all duration-300 hover:-translate-y-3 text-center relative overflow-hidden group">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary to-primary-dark transition-all duration-300 h-0 group-hover:h-full -z-10"></div>
+            <div class="w-16 h-16 md:w-20 md:h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-5 text-primary text-xl md:text-2xl transition-colors duration-300 group-hover:text-white group-hover:bg-white/20">
+              <i class="fas fa-file-export"></i>
+            </div>
+            <div class="w-full h-40 sm:h-44 rounded-xl overflow-hidden mb-5">
+              <img
+                src="./Assets/img/vector3.jpg"
+                alt="Format Conversion"
+                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+              />
+            </div>
+            <h3 class="font-bold text-lg md:text-xl mb-4">Format Conversion</h3>
+            <p class="text-gray-600 transition-colors duration-300 group-hover:text-white/90 text-sm md:text-base">
+              Convert between AI, EPS, PDF, SVG and other vector file formats.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Apparel Section -->
+    <section class="py-16 md:py-20 bg-white" id="apparel">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12 md:mb-16">
+          <h2 class="font-bold text-3xl md:text-4xl mb-4 relative inline-block after:content-[''] after:absolute after:-bottom-3 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-primary after:rounded">
+            Apparel Services
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">Digitizing for various types of apparel and fabrics</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          <!-- Apparel Item 1 -->
+          <div class="text-center group">
+            <div class="w-full h-48 sm:h-56 md:h-64 bg-gray-100 rounded-xl mb-4 md:mb-5 overflow-hidden flex items-center justify-center">
+              <img
+                src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="T-Shirts"
+                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
+            <h3 class="font-bold text-lg md:text-xl mb-2 md:mb-3">T-Shirts</h3>
+            <p class="text-gray-600 text-sm md:text-base">Perfect for cotton and poly-cotton blends</p>
+          </div>
+
+          <!-- Apparel Item 2 -->
+          <div class="text-center group">
+            <div class="w-full h-48 sm:h-56 md:h-64 bg-gray-100 rounded-xl mb-4 md:mb-5 overflow-hidden flex items-center justify-center">
+              <img
+                src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Caps"
+                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
+            <h3 class="font-bold text-lg md:text-xl mb-2 md:mb-3">Caps & Hats</h3>
+            <p class="text-gray-600 text-sm md:text-base">Specialized digitizing for curved surfaces</p>
+          </div>
+
+          <!-- Apparel Item 3 -->
+          <div class="text-center group">
+            <div class="w-full h-48 sm:h-56 md:h-64 bg-gray-100 rounded-xl mb-4 md:mb-5 overflow-hidden flex items-center justify-center">
+              <img
+                src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Jackets"
+                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
+            <h3 class="font-bold text-lg md:text-xl mb-2 md:mb-3">Jackets</h3>
+            <p class="text-gray-600 text-sm md:text-base">Heavy fabrics with complex designs</p>
+          </div>
+
+          <!-- Apparel Item 4 -->
+          <div class="text-center group">
+            <div class="w-full h-48 sm:h-56 md:h-64 bg-gray-100 rounded-xl mb-4 md:mb-5 overflow-hidden flex items-center justify-center">
+              <img
+                src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Bags"
+                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
+            <h3 class="font-bold text-lg md:text-xl mb-2 md:mb-3">Bags & Towels</h3>
+            <p class="text-gray-600 text-sm md:text-base">Special techniques for textured surfaces</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-16 md:py-20 bg-gray-50" id="about">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col lg:flex-row items-center gap-8 md:gap-12">
+          <div class="lg:w-1/2">
+            <h2 class="font-bold text-3xl md:text-4xl mb-4 md:mb-6">About Fella Digitizers</h2>
+            <p class="text-gray-600 mb-4 text-sm md:text-base">
+              With over 10 years of experience in the embroidery industry, Fella Digitizers has established itself as a trusted partner for businesses and individuals seeking high-quality digitizing services.
+            </p>
+            <p class="text-gray-600 mb-4 text-sm md:text-base">
+              Our team of skilled digitizers combines technical expertise with artistic vision to transform your designs into embroidery files that produce stunning results on any fabric.
+            </p>
+            <p class="text-gray-600 mb-6 md:mb-8 text-sm md:text-base">
+              We pride ourselves on our attention to detail, fast turnaround times, and commitment to customer satisfaction.
+            </p>
+
+            <div class="flex flex-wrap gap-6 md:gap-8">
+              <div class="text-center">
+                <div class="text-2xl md:text-4xl font-bold text-primary mb-1 stat-number">10+</div>
+                <div class="text-gray-600 text-xs md:text-sm">Years Experience</div>
+              </div>
+              <div class="text-center">
+                <div class="text-2xl md:text-4xl font-bold text-primary mb-1 stat-number">5000+</div>
+                <div class="text-gray-600 text-xs md:text-sm">Projects Completed</div>
+              </div>
+              <div class="text-center">
+                <div class="text-2xl md:text-4xl font-bold text-primary mb-1 stat-number">98%</div>
+                <div class="text-gray-600 text-xs md:text-sm">Client Satisfaction</div>
+              </div>
+            </div>
+          </div>
+          <div class="lg:w-1/2 mt-8 lg:mt-0">
+            <div class="rounded-2xl overflow-hidden shadow-xl">
+              <img
+                src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                alt="Our Team"
+                class="w-full h-auto"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-16 md:py-20 bg-white" id="contact">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12 md:mb-16">
+          <h2 class="font-bold text-3xl md:text-4xl mb-4 relative inline-block after:content-[''] after:absolute after:-bottom-3 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-primary after:rounded">
+            Contact Us
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto text-sm md:text-base">
+            Get in touch with our team for any inquiries or to start your project
+          </p>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-8 md:gap-12">
+          <div class="lg:w-1/2">
+            <h2 class="font-bold text-2xl md:text-3xl lg:text-4xl mb-4 md:mb-5">Let's Start Your Project</h2>
+            <p class="text-gray-600 mb-6 md:mb-8 text-sm md:text-base">
+              Have a design you want to digitize? Contact us today for a free quote and consultation.
+            </p>
+
+            <div class="space-y-4 md:space-y-6 mb-6 md:mb-8">
+              <div class="flex items-start gap-3 md:gap-4">
+                <div class="w-8 h-8 md:w-10 md:h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary text-sm md:text-base">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-1 text-sm md:text-base">Our Location</h4>
+                  <p class="text-gray-600 text-sm md:text-base">123 Design Street, Creative City</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 md:gap-4">
+                <div class="w-8 h-8 md:w-10 md:h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary text-sm md:text-base">
+                  <i class="fas fa-phone"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-1 text-sm md:text-base">Phone Number</h4>
+                  <p class="text-gray-600 text-sm md:text-base">+1 (555) 123-4567</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 md:gap-4">
+                <div class="w-8 h-8 md:w-10 md:h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary text-sm md:text-base">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-1 text-sm md:text-base">Email Address</h4>
+                  <p class="text-gray-600 text-sm md:text-base">info@felladigitizers.com</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-4 md:p-5 rounded-xl">
+              <h4 class="text-primary font-semibold mb-3 md:mb-4 text-sm md:text-base">Working Hours</h4>
+              <div class="space-y-2 md:space-y-3">
+                <div class="flex justify-between pb-2 md:pb-3 border-b border-gray-200 text-xs md:text-sm">
+                  <span>Monday - Friday</span>
+                  <span>9:00 AM - 6:00 PM</span>
+                </div>
+                <div class="flex justify-between pb-2 md:pb-3 border-b border-gray-200 text-xs md:text-sm">
+                  <span>Saturday</span>
+                  <span>10:00 AM - 2:00 PM</span>
+                </div>
+                <div class="flex justify-between text-xs md:text-sm">
+                  <span>Sunday</span>
+                  <span>Closed</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex gap-3 md:gap-4 mt-6 md:mt-8">
+              <a href="https://www.facebook.com/" class="w-8 h-8 md:w-10 md:h-10 bg-slate-600 rounded-full flex items-center justify-center text-white hover:bg-primary transition-colors text-sm">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="https://twitter.com/" class="w-8 h-8 md:w-10 md:h-10 bg-slate-600 rounded-full flex items-center justify-center text-white hover:bg-primary transition-colors text-sm">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="https://www.instagram.com/" class="w-8 h-8 md:w-10 md:h-10 bg-slate-600 rounded-full flex items-center justify-center text-white hover:bg-primary transition-colors text-sm">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="https://www.linkedin.com/" class="w-8 h-8 md:w-10 md:h-10 bg-slate-600 rounded-full flex items-center justify-center text-white hover:bg-primary transition-colors text-sm">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:w-1/2 mt-8 lg:mt-0">
+            <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg">
+              <form id="contactForm">
+                <div class="mb-4 md:mb-5">
+                  <label for="name" class="block font-medium mb-2 text-sm md:text-base">Full Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    class="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-colors text-sm md:text-base"
+                    placeholder="Your Name"
+                    required
+                  />
+                </div>
+
+                <div class="mb-4 md:mb-5">
+                  <label for="email" class="block font-medium mb-2 text-sm md:text-base">Email Address</label>
+                  <input
+                    type="email"
+                    id="email"
+                    class="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-colors text-sm md:text-base"
+                    placeholder="your.email@example.com"
+                    required
+                  />
+                </div>
+
+                <div class="mb-4 md:mb-5">
+                  <label for="phone" class="block font-medium mb-2 text-sm md:text-base">Phone Number</label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    class="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-colors text-sm md:text-base"
+                    placeholder="+1 (555) 123-4567"
+                  />
+                </div>
+
+                <div class="mb-4 md:mb-5">
+                  <label for="service" class="block font-medium mb-2 text-sm md:text-base">Service Needed</label>
+                  <select id="service" class="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-colors text-sm md:text-base" required>
+                    <option value="">Select a Service</option>
+                    <option value="logo-digitizing">Patches</option>
+                    <option value="3d-puff">Digitizing</option>
+                    <option value="custom-design">Apparel</option>
+                    <option value="file-conversion">Vector Art</option>
+                  
+                  </select>
+                </div>
+
+                <div class="mb-6">
+                  <label for="message" class="block font-medium mb-2 text-sm md:text-base">Project Details</label>
+                  <textarea
+                    id="message"
+                    class="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-colors min-h-[100px] md:min-h-[120px] text-sm md:text-base"
+                    placeholder="Tell us about your project, including design details, fabric type, and any special requirements..."
+                    required
+                  ></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-primary text-white border-none py-3 px-6 rounded-full font-semibold cursor-pointer transition-all hover:bg-primary-dark hover:-translate-y-1 hover:shadow-lg flex items-center justify-center gap-2 text-sm md:text-base">
+                  Send Message <i class="fas fa-paper-plane"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 md:py-20 bg-gradient-to-br from-primary to-primary-dark text-white text-center">
+      <div class="container mx-auto px-4">
+        <h2 class="font-bold text-2xl md:text-3xl lg:text-4xl mb-4 md:mb-5">Ready to Transform Your Designs?</h2>
+        <p class="text-lg md:text-xl mb-6 md:mb-8 max-w-2xl mx-auto opacity-90">
+          Get a free quote for your embroidery digitizing project. Fast turnaround and guaranteed quality.
+        </p>
+        <a href="#contact">
+          <button class="bg-white text-primary border-none py-3 px-6 rounded-full font-semibold cursor-pointer transition-all hover:bg-gray-100 hover:-translate-y-1 hover:shadow-lg flex items-center gap-2 mx-auto">
+            Get Started Today <i class="fas fa-arrow-right"></i>
+          </button>
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-16 md:pt-20 pb-8">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 mb-10 md:mb-12">
+          <div>
+            <div class="flex items-center gap-2 mb-4 md:mb-5">
+              <i class="fas fa-threads text-primary text-2xl"></i>
+              <div class="font-bold text-xl md:text-2xl">
+                Fella <span class="text-primary">Digitizers</span>
+              </div>
+            </div>
+            <p class="text-slate-400 mb-4 md:mb-5 text-sm md:text-base">
+              Professional embroidery digitizing services with fast turnaround and competitive pricing.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-lg md:text-xl mb-4 md:mb-5 relative pb-2 md:pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-8 md:after:w-10 after:h-0.5 after:bg-primary">Services</h3>
+            <ul class="space-y-2">
+              <li><a href="#digitizing" class="text-slate-400 hover:text-white transition-colors hover:pl-1 text-sm md:text-base">Digitizing</a></li>
+              <li><a href="#vector" class="text-slate-400 hover:text-white transition-colors hover:pl-1 text-sm md:text-base">Vector Services</a></li>
+              <li><a href="#patches" class="text-slate-400 hover:text-white transition-colors hover:pl-1 text-sm md:text-base">Patches</a></li>
+              <li><a href="#apparel" class="text-slate-400 hover:text-white transition-colors hover:pl-1 text-sm md:text-base">Apparel</a></li>
+              <li><a href="#pricing" class="text-slate-400 hover:text-white transition-colors hover:pl-1 text-sm md:text-base">Pricing</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-lg md:text-xl mb-4 md:mb-5 relative pb-2 md:pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-8 md:after:w-10 after:h-0.5 after:bg-primary">Quick Links</h3>
+            <ul class="space-y-2">
+              <li><a href="#home" class="text-slate-400 hover:text-white transition-colors hover:pl-1 text-sm md:text-base">Home</a></li>
+              <li><a href="#services" class="text-slate-400 hover:text-white transition-colors hover:pl-1 text-sm md:text-base">Services</a></li>
+              <li><a href="#about" class="text-slate-400 hover:text-white transition-colors hover:pl-1 text-sm md:text-base">About Us</a></li>
+              <li><a href="#contact" class="text-slate-400 hover:text-white transition-colors hover:pl-1 text-sm md:text-base">Contact Us</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-lg md:text-xl mb-4 md:mb-5 relative pb-2 md:pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-8 md:after:w-10 after:h-0.5 after:bg-primary">Contact Us</h3>
+            <ul class="space-y-2 md:space-y-3 text-slate-400">
+              <li class="flex items-start gap-2 text-sm md:text-base">
+                <i class="fas fa-map-marker-alt mt-1"></i>
+                <span>123 Design Street, Creative City</span>
+              </li>
+              <li class="flex items-start gap-2 text-sm md:text-base">
+                <i class="fas fa-phone mt-1"></i>
+                <span>+1 (555) 123-4567</span>
+              </li>
+              <li class="flex items-start gap-2 text-sm md:text-base">
+                <i class="fas fa-envelope mt-1"></i>
+                <span>info@felladigitizers.com</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pt-6 md:pt-8 border-t border-slate-700 text-center text-slate-400 text-xs md:text-sm">
+          <p>&copy; 2024 Fella Digitizers. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile Navigation Toggle
+      document.querySelector('.mobile-toggle').addEventListener('click', function () {
+        document.querySelector('.mobile-nav').classList.remove('-translate-x-full');
+        document.querySelector('.mobile-overlay').classList.remove('hidden');
+      });
+
+      // Mobile Menu Close
+      document.querySelector('.mobile-close').addEventListener('click', function () {
+        document.querySelector('.mobile-nav').classList.add('-translate-x-full');
+        document.querySelector('.mobile-overlay').classList.add('hidden');
+      });
+
+      // Overlay Close
+      document.querySelector('.mobile-overlay').addEventListener('click', function () {
+        document.querySelector('.mobile-nav').classList.add('-translate-x-full');
+        this.classList.add('hidden');
+      });
+
+      // Mobile Dropdown Toggle
+      document.querySelector('.mobile-dropdown > a').addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector('.mobile-dropdown-menu').classList.toggle('hidden');
+      });
+
+      // Close mobile menu when clicking on links
+      document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', function() {
+          document.querySelector('.mobile-nav').classList.add('-translate-x-full');
+          document.querySelector('.mobile-overlay').classList.add('hidden');
+        });
+      });
+
+      // Form submission
+      document.getElementById('contactForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Get form values
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const service = document.getElementById('service').value;
+
+        // Show success message (in a real app, you would send this to a server)
+        alert(
+          `Thank you ${name}! Your message has been sent. We'll contact you at ${email} about your ${service} project.`
+        );
+
+        // Reset form
+        this.reset();
+      });
+
+      // Header scroll effect
+      window.addEventListener('scroll', function() {
+        const header = document.querySelector('header');
+        if (window.scrollY > 100) {
+          header.classList.add('shadow-lg');
+        } else {
+          header.classList.remove('shadow-lg');
+        }
+      });
+
+      // Stats counter animation
+      const statNumbers = document.querySelectorAll('.stat-number');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const target = parseInt(entry.target.textContent);
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+              current += increment;
+              if (current >= target) {
+                entry.target.textContent = target + (target === 10 ? '+' : (target === 5000 ? '+' : '%'));
+                clearInterval(timer);
+              } else {
+                entry.target.textContent = Math.floor(current) + (target === 10 ? '+' : (target === 5000 ? '+' : '%'));
+              }
+            }, 30);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      statNumbers.forEach(stat => {
+        observer.observe(stat);
+      });
+    </script>
+  </body>
+</html>
